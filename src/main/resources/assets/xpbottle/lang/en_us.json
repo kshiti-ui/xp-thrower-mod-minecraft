@@ -1,0 +1,13 @@
+{
+  "key.xpbottle.toggle": "Toggle XP Auto Throw",
+  "text.xpbottle.enabled": "Auto XP: ON",
+  "text.xpbottle.disabled": "Auto XP: OFF",
+  "text.xpbottle.config.title": "XP Bottle Auto Thrower",
+  "text.xpbottle.config.enabled": "Enable Auto XP Thrower",
+  "text.xpbottle.config.enabled.tooltip": "Master toggle for the auto-thrower",
+  "text.xpbottle.config.cps": "Throw Speed (CPS)",
+  "text.xpbottle.config.cps.tooltip": "Clicks per second (1-20)",
+  "text.xpbottle.config.showHud": "Show HUD",
+  "text.xpbottle.config.showHud.tooltip": "Display status overlay on screen",
+  "text.xpbottle.hud.status": "Auto XP: %s | CPS: %d"
+}

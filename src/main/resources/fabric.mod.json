@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "xpbottle",
+  "version": "${version}",
+  "name": "XP Bottle Auto Thrower",
+  "description": "Automatically throw Bottles o' Enchanting with configurable CPS control",
+  "authors": [
+    "Kanhaiya_2007"
+  ],
+  "contact": {
+    "sources": "https://github.com/kanhaiya/xpbottle-autothrower"
+  },
+  "license": "MIT",
+  "icon": "assets/xpbottle/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.kanhaiya.xpbottle.XPBottleClient"
+    ]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "minecraft": "~1.21.4",
+    "java": ">=21"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}
