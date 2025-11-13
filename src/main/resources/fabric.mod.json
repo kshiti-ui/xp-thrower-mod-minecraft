@@ -2,30 +2,30 @@
   "schemaVersion": 1,
   "id": "xpbottle",
   "version": "${version}",
-  "name": "XP Bottle Auto Thrower",
-  "description": "Automatically throw Bottles o' Enchanting with configurable CPS control",
-  "authors": [
-    "Kanhaiya_2007"
-  ],
+  "name": "XP Bottle Mod",
+  "description": "Automatically use XP Bottles with adjustable CPS and GUI config.",
+  "authors": ["Kanhaiya"],
   "contact": {
-    "sources": "https://github.com/kanhaiya/xpbottle-autothrower"
+    "homepage": "https://github.com/kshiti-ui/xp-thrower-mod-minecraft",
+    "sources": "https://github.com/kshiti-ui/xp-thrower-mod-minecraft",
+    "issues": "https://github.com/kshiti-ui/xp-thrower-mod-minecraft/issues"
   },
   "license": "MIT",
   "icon": "assets/xpbottle/icon.png",
-  "environment": "client",
+  "environment": "*",
   "entrypoints": {
     "client": [
       "com.kanhaiya.xpbottle.XPBottleClient"
+    ],
+    "modmenu": [
+      "com.kanhaiya.xpbottle.config.ModMenuIntegration"
     ]
   },
-  "mixins": [],
   "depends": {
-    "fabricloader": ">=0.16.0",
-    "fabric-api": "*",
-    "minecraft": "~1.21.4",
-    "java": ">=21"
-  },
-  "suggests": {
-    "modmenu": "*"
+    "fabricloader": ">=0.15.0",
+    "fabric": "*",
+    "minecraft": ">=1.21 <=1.21.4",
+    "cloth-config": ">=15.0.127",
+    "modmenu": ">=11.0.1"
   }
 }
