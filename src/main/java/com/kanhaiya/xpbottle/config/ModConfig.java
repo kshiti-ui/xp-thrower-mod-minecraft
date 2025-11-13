@@ -1,48 +1,49 @@
 package com.kanhaiya.xpbottle.config;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import net.fabricmc.loader.api.FabricLoader;
+/**
+ * Configuration manager for XP Bottle Auto Thrower Mod
+ * 
+ * @author Kanhaiya
+ * @license MIT License
+ * @repository https://github.com/kshiti-ui/xp-thrower-mod-minecraft
+ */
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import net.fabricmc.loader.api.FabricLoader;
+import java.nio.file.*;
+import java.io.*;
+import com.google.gson.*;
 
 public class ModConfig {
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-    private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("xpbottle-autothrower.json");
-
     public boolean enabled = true;
     public int cps = 10;
     public boolean showHud = true;
+    public int hudX = 5;
+    public int hudY = 5;
+    
+    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static final Path CONFIG_PATH = FabricLoader.getInstance().getConfigDir().resolve("xpbottle.json");
 
     public static ModConfig load() {
-        if (Files.exists(CONFIG_PATH)) {
-            try {
-                String json = Files.readString(CONFIG_PATH);
-                return GSON.fromJson(json, ModConfig.class);
-            } catch (IOException e) {
-                System.err.println("Failed to load XP Bottle config: " + e.getMessage());
+        try {
+            if (Files.exists(CONFIG_PATH)) {
+                try (Reader reader = Files.newBufferedReader(CONFIG_PATH)) {
+                    return gson.fromJson(reader, ModConfig.class);
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        
-        ModConfig config = new ModConfig();
-        config.save();
-        return config;
+        return new ModConfig();
     }
 
     public void save() {
         try {
             Files.createDirectories(CONFIG_PATH.getParent());
-            String json = GSON.toJson(this);
-            Files.writeString(CONFIG_PATH, json);
-        } catch (IOException e) {
-            System.err.println("Failed to save XP Bottle config: " + e.getMessage());
+            try (Writer writer = Files.newBufferedWriter(CONFIG_PATH)) {
+                gson.toJson(this, writer);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    }
-
-    public void validate() {
-        if (cps < 1) cps = 1;
-        if (cps > 20) cps = 20;
     }
 }
