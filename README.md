@@ -2,7 +2,7 @@ A Fabric mod for Minecraft that automatically throws XP bottles at a configurabl
 # ✨ Features
 
 Auto Throw XP Bottles: Automatically throws experience bottles from your main hand
-Adjustable CPS: Configure throws per second (1-100 CPS)
+Adjustable CPS: Configure throws per second (1-20 CPS)
 Toggle Keybind: Middle mouse button to enable/disable
 Status HUD: Visual on-screen indicator showing mod status (ON/OFF)
 Customizable HUD Position: Adjust HUD location with X/Y coordinates
@@ -12,11 +12,11 @@ Action Bar Messages: Clear feedback when toggling or auto-disabling
 
 # 📋 Requirements
 
-- Minecraft: 1.21 - 1.21.4
+- Minecraft: 1.21.9 - 1.21.11
 - Fabric Loader: 0.15.0 or higher
 - Fabric API: Latest version
-- Cloth Config: 15.0.127 or higher
-- Mod Menu: 11.0.1 or higher (for config screen)
+- Cloth Config: 20.0.149 or higher
+- Mod Menu: 15.0.0 or higher (for config screen)
 
 Download the latest release of XP Bottle Auto Thrower from Releases
 Place all downloaded .jar files in your .minecraft/mods folder
@@ -39,7 +39,7 @@ Action bar messages confirm toggle state
 ### Adjust settings:
 
 - Enabled by Default: Whether mod starts enabled
-- Clicks per Second (CPS): Throw rate (1-100)
+- Clicks per Second (CPS): Throw rate (1-20)
 - Show HUD: Toggle HUD visibility
 - HUD X Position: Horizontal position (pixels from left)
 - HUD Y Position: Vertical position (pixels from top)
