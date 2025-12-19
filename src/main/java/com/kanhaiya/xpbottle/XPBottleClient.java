@@ -4,7 +4,7 @@ package com.kanhaiya.xpbottle;
  * XP Bottle Auto Thrower Mod
  * 
  * @author Kanhaiya
- * @version 1.0.0
+ * @version 2.0.0
  * @license MIT License
  * @repository https://github.com/kshiti-ui/xp-thrower-mod-minecraft
  * 
@@ -42,7 +42,7 @@ public class XPBottleClient implements ClientModInitializer {
                 "key.xpbottle.toggle",
                 InputUtil.Type.MOUSE,
                 GLFW.GLFW_MOUSE_BUTTON_MIDDLE,
-                "category.xpbottle"
+                KeyBinding.Category.MISC
         ));
 
         // Register HUD rendering - fixed signature for 1.21
@@ -101,16 +101,20 @@ public class XPBottleClient implements ClientModInitializer {
         String text = "XP Bottle: " + status;
         
         // Draw background
-        drawContext.fill(x - 2, y - 2, x + 90, y + 12, 0x80000000);
-        
-        // Draw text - fixed signature for 1.21
-        drawContext.drawText(
+        int padding = 4;
+        int width = client.textRenderer.getWidth(text) + padding * 2;
+        int height = client.textRenderer.fontHeight + padding * 2;
+
+        // Draw semi-transparent background
+        drawContext.fill(x - padding, y - padding, x + width - padding, y + height - padding, 0x80000000);
+
+        // Draw text with shadow for better visibility
+        drawContext.drawTextWithShadow(
                 client.textRenderer,
                 Text.literal(text),
                 x,
                 y,
-                0xFFFFFF,
-                true
+                0xFFFFFFFF // full opaque white
         );
     }
 
