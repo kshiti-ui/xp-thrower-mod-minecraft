@@ -15,7 +15,7 @@ import com.google.gson.*;
 
 public class ModConfig {
     public boolean enabled = true;
-    public int cps = 10;
+    public int cps = 5;
     public boolean showHud = true;
     public int hudX = 5;
     public int hudY = 5;
