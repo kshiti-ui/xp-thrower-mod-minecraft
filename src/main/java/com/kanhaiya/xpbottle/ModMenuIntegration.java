@@ -1,4 +1,4 @@
-package com.kanhaiya.xpbottle.config;
+package com.kanhaiya.xpbottle;
 
 /**
  * Mod Menu integration for XP Bottle Auto Thrower configuration screen
@@ -9,6 +9,7 @@ package com.kanhaiya.xpbottle.config;
  */
 
 import com.kanhaiya.xpbottle.XPBottleClient;
+import com.kanhaiya.xpbottle.config.ModConfig;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
@@ -39,8 +40,10 @@ public class ModMenuIntegration implements ModMenuApi {
 
             // CPS slider
             general.addEntry(entryBuilder
-                    .startIntSlider(Text.literal("Clicks per Second (CPS)"), config.cps, 1, 100)
-                    .setDefaultValue(10)
+                    .startIntField(Text.literal("Clicks per Second (CPS) 1-20"), config.cps)
+                    .setDefaultValue(5)
+                    .setMin(1)
+                    .setMax(20)
                     .setTooltip(Text.literal("How many XP bottles per second are thrown"))
                     .setSaveConsumer(val -> config.cps = val)
                     .build());
